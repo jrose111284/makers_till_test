@@ -18,4 +18,10 @@ class Checkout
     end
     total_price
   end
+
+  def tax
+    tax_percentage = @items["tax"]["tax_total"]
+    total + tax_percentage
+
+  end
 end

@@ -28,5 +28,8 @@
   },
   "Choc Mousse": {
     "product_price": 8.25
+  },
+  "tax": {
+    "tax_total": 0.4
   }
 }
