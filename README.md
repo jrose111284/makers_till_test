@@ -1,6 +1,28 @@
 Till tech test
 ==============
 
+# My Approach Version 1
+in terminal
+
+```
+git clone git@github.com:jrose111284/makers_till_test.git
+bundle
+```
+
+in irb
+```
+require './lib/checkout'
+co = Checkout.new('./hipstercoffee.json')
+co.scan("Cappucino")
+co.total
+ => 3.85
+ co.tax
+  => 4.25
+```
+
+I used the json to store all coffee items, and work out of tax. This allowed me to keep my class free of hard coded itegers. So you can work out total price before adding tax to total order and once order is complete, then you add the tax.
+
+
 *Instructions*: Please fork this repo and submit a pull request once you've finished. Then prepare for code review!
 
 ![a till](/images/till.jpg)
@@ -18,7 +40,7 @@ This is what a sample receipt looks like:
 Version 1
 ---------
 
-Implement a system that contains the business logic to produce receipts similar to this, based on a `json` price list and test orders. A sample `.json` file has been provided with the list of products sold at this particular coffee shop. 
+Implement a system that contains the business logic to produce receipts similar to this, based on a `json` price list and test orders. A sample `.json` file has been provided with the list of products sold at this particular coffee shop.
 
 Here are some sample orders you can try - whether you use this information is up to you:
 
