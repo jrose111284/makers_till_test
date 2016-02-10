@@ -22,7 +22,18 @@ co.total
 
 I used the json to store all coffee items, and work out of tax. This allowed me to keep my class free of hard coded itegers. So you can work out total price before adding tax to total order and once order is complete, then you add the tax.
 
+#Version 2
 
+```
+require './lib/checkout'
+co = Checkout.new('./hipstercoffee.json')
+co.scan("Cappucino") *7
+co.tax
+=> 58.15
+co.apply_discount
+=> 57.25
+```
+Needs refactoring also need to amend percentage.
 *Instructions*: Please fork this repo and submit a pull request once you've finished. Then prepare for code review!
 
 ![a till](/images/till.jpg)
