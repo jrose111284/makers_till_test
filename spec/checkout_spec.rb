@@ -25,4 +25,13 @@ describe Checkout do
      expect(checkout.tax).to eq(5.15)
    end
  end
+
+ context 'gives 5% discount when you spend over £50' do
+   it 'will give you 5 percent off over £50 spent' do
+     over_fifty
+     checkout.total
+     checkout.tax
+     expect(checkout.apply_discount).to eq(57.25)
+   end
+ end
 end
