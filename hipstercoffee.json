@@ -31,5 +31,8 @@
   },
   "tax": {
     "tax_total": 0.4
-  }
+  },
+  "discount_5%": {
+      "discount_percentage": 0.5
+    }
 }
