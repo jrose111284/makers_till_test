@@ -17,21 +17,20 @@ class Checkout
     @order.each do |shop_item|
       total_price += @items[shop_item]["product_price"]
     end
-    total_price.round(2)
+    totals = total_price += tax
+    totals -= @items["discount_5%"]["discount_percentage"] if totals > DISCOUNT
+    totals.round(2)
   end
 
   def tax
-    tax_percentage = @items["tax"]["tax_total"]
-    total + tax_percentage
+    @items["tax"]["tax_total"]
   end
 
-  def apply_discount
-    discount_percentage = @items["discount_5%"]["discount_percentage"]
-    five_percent_off = total - discount_percentage
-    five_percent_off if total > DISCOUNT
-  end
-
-  def add_funds(amount)
+  def take_cash(amount)
     @balance += amount
+  end
+
+  def give_change
+    @balance -= total
   end
 end
