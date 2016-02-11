@@ -15,25 +15,26 @@ require './lib/checkout'
 co = Checkout.new('./hipstercoffee.json')
 co.scan("Cappucino")
 co.total
- => 3.85
- co.tax
-  => 4.25
+ => 4.25
 ```
 
-I used the json to store all coffee items, and work out of tax. This allowed me to keep my class free of hard coded itegers. So you can work out total price before adding tax to total order and once order is complete, then you add the tax.
+I used the json to store all coffee items, and work out of tax. This allowed me to keep my class free of hard coded itegers. So you can work out total price with adding tax to total order.
 
 #Version 2
-
+I added functionality to give 5% off order over £50, take cash, and return change. it automaticaly applys tax, and discount if order is over £50.
 ```
 require './lib/checkout'
 co = Checkout.new('./hipstercoffee.json')
-co.scan("Cappucino") *7
-co.tax
-=> 58.15
-co.apply_discount
-=> 57.25
+co.scan("Choc Mousse") *7
+co.total
+ => 57.65
+ co.take_cash(60.00)
+ => 60.0
+ co.give_change
+ => 2.35
 ```
 Needs refactoring also need to amend percentage.
+
 *Instructions*: Please fork this repo and submit a pull request once you've finished. Then prepare for code review!
 
 ![a till](/images/till.jpg)
