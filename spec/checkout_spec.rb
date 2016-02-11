@@ -34,4 +34,10 @@ describe Checkout do
      expect(checkout.apply_discount).to eq(57.25)
    end
  end
+
+ context 'takes cash and gives change' do
+    it 'take cash' do
+      expect(checkout.add_funds(10.00)).to eq(10.00)
+    end
+  end
 end
