@@ -5,6 +5,7 @@ class Checkout
   def initialize(items_json)
     @items = JSON.parse(File.read(items_json))
     @order = []
+    @balance = 0
   end
 
   def scan(item)
@@ -28,5 +29,9 @@ class Checkout
     discount_percentage = @items["discount_5%"]["discount_percentage"]
     five_percent_off = total - discount_percentage
     five_percent_off if total > DISCOUNT
+  end
+
+  def add_funds(amount)
+    @balance += amount
   end
 end
